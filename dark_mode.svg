@@ -21,33 +21,28 @@ text, tspan {white-space: pre;}
 <text x="90" y="30" fill="#8b949e" font-size="13px" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">elyefris@omarchy — Terminal</text>
 <line x1="15" y1="45" x2="1105" y2="45" stroke="#30363d" stroke-width="1.5"/>
 
-<!-- Left Side ASCII Art -->
-<text x="20" y="75" fill="#7aa2f7" class="ascii">
-<tspan x="20" dy="20">::-*%@@@@@@@@@@@@@%%##*+-::::::::-------</tspan>
-<tspan x="20" dy="20">.=%@@@@@@@@@@@@@@@@@@@@@%+-:::::--------</tspan>
-<tspan x="20" dy="20">-%@@@@@@@@%##***##%@@@@@@@%=::----------</tspan>
-<tspan x="20" dy="20">@@@@@@@#*++====+++++*#@@@@@@+-----------</tspan>
-<tspan x="20" dy="20">@@@@%*+=========++******#%@@@+----------</tspan>
-<tspan x="20" dy="20">+%@@+======--=+##****###**#%@%++--------</tspan>
-<tspan x="20" dy="20">..+%=------=++=+++*%%%#*++++#%%%+-------</tspan>
-<tspan x="20" dy="20">...-*++****+++=+++++======++++##*=------</tspan>
-<tspan x="20" dy="20">..::--:=#%*=-=****+===--==++**+**+------</tspan>
-<tspan x="20" dy="20">..--::-=+===:-=+**##+===+++*****=-------</tspan>
-<tspan x="20" dy="20">.....:---=++-==+***+++*#*+=+*+*##*=-----</tspan>
-<tspan x="20" dy="20">.......--=*+=====++*###*+==+**##%@@*+===</tspan>
-<tspan x="20" dy="20">........:-++=+++======+++++**##**#@%***+</tspan>
-<tspan x="20" dy="20">...........:---------=++++****++**%#****</tspan>
-<tspan x="20" dy="20">:...........:-#*+=--==+++*++====+**##+*#</tspan>
-<tspan x="20" dy="20">:.......::--++##@@+======--=====+=+*+-=*</tspan>
-<tspan x="20" dy="20">::::::-+*+=+*=+*##*=--------------====-#</tspan>
-<tspan x="20" dy="20">.....-##+++**++++*+**=----:::-----====#%</tspan>
-<tspan x="20" dy="20">:-::-**#*===*+=+-=+==*+-:-----=-:=--=*++</tspan>
-<tspan x="20" dy="20">:-:-+#*=#=--+*--=+++*+++=-::--+=--*++#=-</tspan>
-<tspan x="20" dy="20">.::-===++*++*+-=-+*=**+++*=-==+*=**#+*--</tspan>
-<tspan x="20" dy="20">.::-=+++=+#+*=+=-=**=+++++%#*+==++======</tspan>
-<tspan x="20" dy="20">:::-+*+=+++#%*++=+*=+++=*=+**=----=-==-=</tspan>
-<tspan x="20" dy="20">:::-=*+-=++%#*+*+=--+*##*====*=-====--=-</tspan>
-<tspan x="20" dy="20">:::==-+=+#*%%--=+---**=*=-==-=**==++=-*+</tspan>
+<!-- Left Side ASCII Art (Iconic Arch Linux Logo) -->
+<text x="25" y="90" fill="#7aa2f7" class="ascii">
+<tspan x="25" dy="22">                   -`</tspan>
+<tspan x="25" dy="22">                  .o+`</tspan>
+<tspan x="25" dy="22">                 `ooo/</tspan>
+<tspan x="25" dy="22">                `+oooo:</tspan>
+<tspan x="25" dy="22">               `+oooooo:</tspan>
+<tspan x="25" dy="22">               -+oooooo+:</tspan>
+<tspan x="25" dy="22">             `/:-:++oooo+:</tspan>
+<tspan x="25" dy="22">            `/++++/+++++++:</tspan>
+<tspan x="25" dy="22">           `/++++++++++++++:</tspan>
+<tspan x="25" dy="22">          `/+++ooooooooooooo/`</tspan>
+<tspan x="25" dy="22">         ./ooossssssssooooc`</tspan>
+<tspan x="25" dy="22">        .ooosssshhhsssssssooooc`</tspan>
+<tspan x="25" dy="22">       -osssssssshhhsssssssooooc</tspan>
+<tspan x="25" dy="22">      -osssssssssshhsssssssooooc</tspan>
+<tspan x="25" dy="22">     /osssssssssssshsssssssooooc</tspan>
+<tspan x="25" dy="22">    /osssssssssssssshsssssssooooc</tspan>
+<tspan x="25" dy="22">   /osssssssssssssssshsssssssooooc</tspan>
+<tspan x="25" dy="22">  /ossssssssssssssssshsssssssooooc</tspan>
+<tspan x="25" dy="22"> /osssssssssssssssssshsssssssooooc</tspan>
+<tspan x="25" dy="22">/ossssssssssssssssssshsssssssooooc</tspan>
 </text>
 
 <!-- Right Side Terminal Content -->
@@ -59,15 +54,15 @@ text, tspan {white-space: pre;}
 <text x="420" y="120" fill="#c9d1d9">
 <tspan x="420" y="120" class="cc">. </tspan><tspan class="key">OS</tspan>:<tspan class="cc"> ....................... </tspan><tspan class="value">Arch Linux (Omarchy), Android 16 (SM-A566E)</tspan>
 <tspan x="420" y="140" class="cc">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="cc" id="age_data_dots"> .................... </tspan><tspan class="value" id="age_data">24 years, 11 months, 27 days</tspan>
-<tspan x="420" y="160" class="cc">. </tspan><tspan class="key">Host</tspan>:<tspan class="cc"> ..................... </tspan><tspan class="value">Full Snack Developer &amp; AR Specialist</tspan>
+<tspan x="420" y="160" class="cc">. </tspan><tspan class="key">Host</tspan>:<tspan class="cc"> ..................... </tspan><tspan class="value">Software Developer &amp; AR Student</tspan>
 <tspan x="420" y="180" class="cc">. </tspan><tspan class="key">Kernel</tspan>:<tspan class="cc"> ................. </tspan><tspan class="value">Linux (BTW), Hyprland, Ghostty 👻</tspan>
 <tspan x="420" y="200" class="cc">. </tspan><tspan class="key">IDE</tspan>:<tspan class="cc"> ...................... </tspan><tspan class="value">Neovim, VSCode, Unity, Blender</tspan>
 
-<tspan x="420" y="235" class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Programming</tspan>:<tspan class="cc"> ... </tspan><tspan class="value">Python, SQL, C#, TypeScript, Kotlin</tspan>
+<tspan x="420" y="235" class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Programming</tspan>:<tspan class="cc"> ... </tspan><tspan class="value">Python, SQL, Kotlin, JavaScript, TS, C#</tspan>
 <tspan x="420" y="255" class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Computer</tspan>:<tspan class="cc"> ...... </tspan><tspan class="value">HTML, CSS, JSON, SQL</tspan>
 <tspan x="420" y="275" class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Real</tspan>:<tspan class="cc"> ........... </tspan><tspan class="value">Spanish, English</tspan>
 
-<tspan x="420" y="310" class="cc">. </tspan><tspan class="key">Hobbies</tspan>.<tspan class="key">Software</tspan>:<tspan class="cc"> ........ </tspan><tspan class="value">Linux Ricing, AR Dev, 3D</tspan>
+<tspan x="420" y="310" class="cc">. </tspan><tspan class="key">Hobbies</tspan>.<tspan class="key">Software</tspan>:<tspan class="cc"> ........ </tspan><tspan class="value">Linux Ricing, Studying AR (Unity, Blender)</tspan>
 <tspan x="420" y="330" class="cc">. </tspan><tspan class="key">Hobbies</tspan>.<tspan class="key">Hardware</tspan>:<tspan class="cc"> ........ </tspan><tspan class="value">Arduino, Robotics, Electronics</tspan>
 </text>
 
