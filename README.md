@@ -3,7 +3,7 @@
 # ⚡ Jeff Cortez | Full Snack Developer 🍕
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="400" />
+  <img src="https://raw.githubusercontent.com/mrf7/mrf7/main/archlinux.gif" width="600" />
 </p>
 
 <div align="center">
