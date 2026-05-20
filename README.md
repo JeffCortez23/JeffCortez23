@@ -1,84 +1,65 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=1a1b26&height=300&section=header&text=ElYefris&fontSize=150&animation=twinkling&fontColor=7aa2f7&theme=tokyonight" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=50&pause=1000&color=7AA2F7&center=true&vCenter=true&width=500&height=100&lines=ElYefris;Full+Snack+Developer;AR+Specialist;Arch+Linux+Enthusiast" alt="Typing SVG" />
 </p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Arch-Linux-1793D1?logo=arch-linux&logoColor=white&style=flat-square" />
+  <img src="https://img.shields.io/badge/Ghostty-Terminal-000000?logo=ghostty&logoColor=white&style=flat-square" />
+  <img src="https://img.shields.io/badge/Neovim-Editor-57A143?logo=neovim&logoColor=white&style=flat-square" />
+  <img src="https://img.shields.io/badge/Tokyo-Night-7AA2F7?logo=visual-studio-code&logoColor=white&style=flat-square" />
+</p>
+
+---
 
 <div align="center">
-  <img src="https://img.shields.io/badge/-Full%20Snack%20Developer-7aa2f7?style=for-the-badge&logoColor=white" />
-  <img src="https://img.shields.io/badge/-AR%20Specialist-bb9af7?style=for-the-badge&logoColor=white" />
-  <img src="https://img.shields.io/badge/-Arch%20Linux%20User-3d59a1?style=for-the-badge&logoColor=white" />
+  <a href="#-español">Español</a> • <a href="#-english">English</a>
 </div>
 
-<p align="center">
-  <b>Full Snack Developer transforming coffee into code and reality into pixels.</b>
-</p>
-
-<p align="center">
-  <a href="#-español">Español</a> • 
-  <a href="#-english">English</a>
-</p>
-
 ---
 
-<details open>
-<summary><h2>🇪🇸 Español</h2></summary>
-
-### 🚀 Sobre mí
-- 🔭 **Construyendo:** [UNAMConnect](https://github.com/JeffCortez23/UNAMConnect) & **BabySleepTracker**.
-- 🕶️ **Realidad Aumentada:** Fusionando mundos con **Unity** & **Blender**.
-- 🐍 **Data & Backend:** Arquitecturas sólidas en **Python** y **SQL**.
-- 🐧 **Customization:** Riceadicto en **Arch Linux** (I use Arch BTW).
-
-### 🖥️ Estación de Trabajo
-| Componente | Configuración |
-| :--- | :--- |
-| **Terminal** | Ghostty 👻 |
-| **Editor** | Neovim (NvChad) / VS Code |
-| **Theme** | Tokyo Night Storm |
-
-</details>
-
-<details>
-<summary><h2>🇺🇸 English</h2></summary>
-
-### 🚀 About Me
-- 🔭 **Building:** [UNAMConnect](https://github.com/JeffCortez23/UNAMConnect) & **BabySleepTracker**.
-- 🕶️ **Augmented Reality:** Merging worlds with **Unity** & **Blender**.
-- 🐍 **Data & Backend:** Solid architectures in **Python** and **SQL**.
-- 🐧 **Customization:** Rice addict on **Arch Linux** (I use Arch BTW).
-
-### 🖥️ Workstation
-| Component | Configuration |
-| :--- | :--- |
-| **Terminal** | Ghostty 👻 |
-| **Editor** | Neovim (NvChad) / VS Code |
-| **Theme** | Tokyo Night Storm |
-
-</details>
-
----
-
-### 🛠️ Arsenal Tecnológico / Tech Stack
+<h3 align="center">🛠️ Technical Arsenal</h3>
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=python,sql,nodejs,ts,angular,android,kotlin,cs,unity,blender,arch,hyprland,neovim,git,github,vscode" />
+    <img src="https://skillicons.dev/icons?i=py,sqlite,nodejs,ts,angular,android,kotlin,cs,unity,blender,arch,neovim,git,github,vscode,linux&theme=dark" />
   </a>
 </p>
 
 ---
 
-### 📊 Análisis de Actividad / Activity Analysis
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=JeffCortez23&show_icons=true&theme=tokyonight&hide_border=true&title_color=7aa2f7&icon_color=bb9af7&text_color=c0caf5&bg_color=1a1b26" width="48%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=JeffCortez23&layout=compact&theme=tokyonight&hide_border=true&title_color=7aa2f7&icon_color=bb9af7&text_color=c0caf5&bg_color=1a1b26" width="48%" />
-  <br/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=JeffCortez23&theme=tokyonight&hide_border=true&stroke=7aa2f7&ring=bb9af7&fire=f7768e&currStreakLabel=7aa2f7" width="97%" />
+<div id="-español">
+  <h3>🇪🇸 Sobre mí</h3>
+  <p>Desarrollador enfocado en la convergencia entre el código y la realidad aumentada. Actualmente construyendo <b>UNAMConnect</b> y soluciones inmersivas con <b>Unity & Blender</b>.</p>
+  <ul>
+    <li>🕶️ <b>AR & 3D:</b> Especialista en flujos de trabajo de Blender a Unity.</li>
+    <li>🐍 <b>Backend:</b> Desarrollo robusto con Python y SQL.</li>
+    <li>🐧 <b>System:</b> Usuario de Arch Linux (Hyprland / Ghostty).</li>
+  </ul>
 </div>
 
 ---
 
+<div id="-english">
+  <h3>🇺🇸 About Me</h3>
+  <p>Developer focused on the convergence between code and augmented reality. Currently building <b>UNAMConnect</b> and immersive solutions with <b>Unity & Blender</b>.</p>
+  <ul>
+    <li>🕶️ <b>AR & 3D:</b> Specialist in Blender-to-Unity workflows.</li>
+    <li>🐍 <b>Backend:</b> Robust development with Python and SQL.</li>
+    <li>🐧 <b>System:</b> Arch Linux user (Hyprland / Ghostty).</li>
+  </ul>
+</div>
+
+---
+
+<h3 align="center">📊 Activity Metrics</h3>
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=JeffCortez23&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117" width="450" />
+</p>
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=JeffCortez23&theme=tokyonight&hide_border=true&background=0d1117" width="450" />
+</p>
+
+---
+
 <div align="center">
-  <br/>
-  <img src="https://komarev.com/ghpvc/?username=JeffCortez23&color=7aa2f7&style=flat-square&label=VISTAS+DEL+PERFIL+/+PROFILE+VIEWS" alt="Views" />
-  <br/>
-  <img src="https://raw.githubusercontent.com/K-S-H-I-T-I-Z/K-S-H-I-T-I-Z/master/Arch.gif" width="100" />
+  <img src="https://komarev.com/ghpvc/?username=JeffCortez23&color=7aa2f7&style=flat-square&label=PROFILE+TRAFFIC" />
 </div>
