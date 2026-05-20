@@ -129,58 +129,58 @@ def generate_right_side(uptime, stats, is_dark=True):
     
     # 1. Header (elyefris@omarchy ---------------------------------------------------------)
     # len("elyefris@omarchy ") = 17 chars. To reach 74, we add 74 - 17 = 57 dashes.
-    rows.append(f'<tspan x="390" y="80" class="title">elyefris@omarchy </tspan><tspan class="cc">---------------------------------------------------------</tspan>')
+    rows.append(f'<tspan x="390" y="90" class="title">elyefris@omarchy </tspan><tspan class="cc">---------------------------------------------------------</tspan>')
     
     # 2. Core info
-    rows.append(make_tspan_row(105, "OS", "Arch Linux (Omarchy), Android 16 (SM-A566E)"))
-    rows.append(make_tspan_row(125, "Uptime", uptime, "age_data"))
-    rows.append(make_tspan_row(145, "Host", "Software Developer &amp; AR Student"))
-    rows.append(make_tspan_row(165, "Kernel", "Linux (BTW), Hyprland, Ghostty 👻"))
-    rows.append(make_tspan_row(185, "IDE", "Neovim, VSCode, Unity, Blender"))
+    rows.append(make_tspan_row(120, "OS", "Arch Linux (Omarchy), Android 16 (SM-A566E)"))
+    rows.append(make_tspan_row(145, "Uptime", uptime, "age_data"))
+    rows.append(make_tspan_row(170, "Host", "Software Developer &amp; AR Student"))
+    rows.append(make_tspan_row(195, "Kernel", "Linux (BTW), Hyprland, Ghostty 👻"))
+    rows.append(make_tspan_row(220, "IDE", "Neovim, VSCode, Unity, Blender"))
     
     # Spacer
-    rows.append(f'<tspan x="390" y="205" class="cc">.</tspan>')
+    rows.append(f'<tspan x="390" y="240" class="cc">.</tspan>')
     
     # Languages
-    rows.append(make_tspan_row(225, "Languages.Programming", "Python, SQL, Kotlin, JavaScript, TS, C#"))
-    rows.append(make_tspan_row(245, "Languages.Computer", "HTML, CSS, JSON, SQL"))
-    rows.append(make_tspan_row(265, "Languages.Real", "Spanish, English"))
+    rows.append(make_tspan_row(265, "Languages.Programming", "Python, SQL, Kotlin, JavaScript, TS, C#"))
+    rows.append(make_tspan_row(290, "Languages.Computer", "HTML, CSS, JSON, SQL"))
+    rows.append(make_tspan_row(315, "Languages.Real", "Spanish, English"))
     
     # Spacer
-    rows.append(f'<tspan x="390" y="285" class="cc">.</tspan>')
+    rows.append(f'<tspan x="390" y="335" class="cc">.</tspan>')
     
     # Hobbies
-    rows.append(make_tspan_row(305, "Hobbies.Software", "Linux Ricing, Studying AR (Unity, Blender)"))
-    rows.append(make_tspan_row(325, "Hobbies.Hardware", "Arduino, Robotics, Electronics"))
+    rows.append(make_tspan_row(360, "Hobbies.Software", "Linux Ricing, Studying AR (Unity, Blender)"))
+    rows.append(make_tspan_row(385, "Hobbies.Hardware", "Arduino, Robotics, Electronics"))
     
     # Spacer
-    rows.append(f'<tspan x="390" y="345" class="cc">.</tspan>')
+    rows.append(f'<tspan x="390" y="405" class="cc">.</tspan>')
     
     # Contact Header (- Contact ----------------------------------------------------------------)
     # len("- Contact ") = 10 chars. To reach 74, we add 74 - 10 = 64 dashes.
-    rows.append(f'<tspan x="390" y="365" class="section">- Contact </tspan><tspan class="cc">----------------------------------------------------------------</tspan>')
+    rows.append(f'<tspan x="390" y="430" class="section">- Contact </tspan><tspan class="cc">----------------------------------------------------------------</tspan>')
     
     # Contact Info
-    rows.append(make_tspan_row(390, "Email.Personal", "jeffcortez2305@gmail.com"))
-    rows.append(make_tspan_row(410, "LinkedIn", "Jeff Cortez"))
-    rows.append(make_tspan_row(430, "Discord", "elyefris"))
-    rows.append(make_tspan_row(450, "ORCID", "0009-0003-3692-7916"))
+    rows.append(make_tspan_row(460, "Email.Personal", "jeffcortez2305@gmail.com"))
+    rows.append(make_tspan_row(485, "LinkedIn", "Jeff Cortez"))
+    rows.append(make_tspan_row(510, "Discord", "elyefris"))
+    rows.append(make_tspan_row(535, "ORCID", "0009-0003-3692-7916"))
     
     # Spacer
-    rows.append(f'<tspan x="390" y="470" class="cc">.</tspan>')
+    rows.append(f'<tspan x="390" y="555" class="cc">.</tspan>')
     
     # GitHub Stats Header (- GitHub Stats -----------------------------------------------------------)
     # len("- GitHub Stats ") = 15 chars. To reach 74, we add 74 - 15 = 59 dashes.
-    rows.append(f'<tspan x="390" y="490" class="stats-title">- GitHub Stats </tspan><tspan class="cc">-----------------------------------------------------------</tspan>')
+    rows.append(f'<tspan x="390" y="580" class="stats-title">- GitHub Stats </tspan><tspan class="cc">-----------------------------------------------------------</tspan>')
     
     # GitHub Stats Info
-    rows.append(make_tspan_row(515, "Repos", str(stats['repos']), "repo_data"))
-    rows.append(make_tspan_row(535, "Contributed", str(stats['contribs']), "contrib_data"))
-    rows.append(make_tspan_row(555, "Stars", str(stats['stars']), "star_data"))
-    rows.append(make_tspan_row(575, "Commits", f"{stats['commits']:,}", "commit_data"))
-    rows.append(make_tspan_row(595, "Followers", str(stats['followers']), "follower_data"))
+    rows.append(make_tspan_row(610, "Repos", str(stats['repos']), "repo_data"))
+    rows.append(make_tspan_row(635, "Contributed", str(stats['contribs']), "contrib_data"))
+    rows.append(make_tspan_row(660, "Stars", str(stats['stars']), "star_data"))
+    rows.append(make_tspan_row(685, "Commits", f"{stats['commits']:,}", "commit_data"))
+    rows.append(make_tspan_row(710, "Followers", str(stats['followers']), "follower_data"))
     
-    return f'<!-- Right Side Terminal Content -->\n<text x="390" y="80" fill="{fill_color}">\n' + "\n".join(rows) + "\n</text>"
+    return f'<!-- Right Side Terminal Content -->\n<text x="390" y="90" fill="{fill_color}" class="right-text">\n' + "\n".join(rows) + "\n</text>"
 
 def update_svg(filename, stats):
     """

@@ -11,11 +11,11 @@ def generate_tspan_block(ascii_file, start_y=160):
         if i == 0:
             tspan_lines.append(f'<tspan x="35" y="{start_y}">{escaped_line}</tspan>')
         else:
-            tspan_lines.append(f'<tspan x="35" dy="12">{escaped_line}</tspan>')
+            tspan_lines.append(f'<tspan x="35" dy="9">{escaped_line}</tspan>')
             
     return "\n".join(tspan_lines)
 
-def inject_into_svg(svg_path, tspan_block, start_y=160):
+def inject_into_svg(svg_path, tspan_block, start_y=95):
     with open(svg_path, "r") as f:
         content = f.read()
         
@@ -35,7 +35,7 @@ def inject_into_svg(svg_path, tspan_block, start_y=160):
 
 if __name__ == '__main__':
     ascii_file = "user_ascii_preview.txt"
-    tspan_block = generate_tspan_block(ascii_file, start_y=160)
+    tspan_block = generate_tspan_block(ascii_file, start_y=95)
     
-    inject_into_svg("dark_mode.svg", tspan_block, start_y=160)
-    inject_into_svg("light_mode.svg", tspan_block, start_y=160)
+    inject_into_svg("dark_mode.svg", tspan_block, start_y=95)
+    inject_into_svg("light_mode.svg", tspan_block, start_y=95)
