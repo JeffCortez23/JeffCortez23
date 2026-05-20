@@ -10,17 +10,41 @@ ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN')
 HEADERS = {'authorization': f'token {ACCESS_TOKEN}'} if ACCESS_TOKEN else {}
 BIRTHDAY = datetime.datetime(2001, 5, 23)
 
+def format_plural(unit):
+    """
+    Returns 's' if the unit value is not 1, to properly format singular/plural nouns.
+    """
+    return 's' if unit != 1 else ''
+
 def get_uptime(birthday):
+    """
+    Calculates the detailed duration since birth (Uptime) in years, months, and days,
+    handling singular/plural units and appending a birthday cake emoji on birthdays.
+    """
     diff = relativedelta.relativedelta(datetime.datetime.today(), birthday)
-    return f"{diff.years} years, {diff.months} months, {diff.days} days"
+    
+    years_str = f"{diff.years} year{format_plural(diff.years)}"
+    months_str = f"{diff.months} month{format_plural(diff.months)}"
+    days_str = f"{diff.days} day{format_plural(diff.days)}"
+    
+    birthday_emoji = " 🎂" if (diff.months == 0 and diff.days == 0) else ""
+    
+    return f"{years_str}, {months_str}, {days_str}{birthday_emoji}"
 
 def simple_request(query, variables):
+    """
+    Performs a GraphQL POST request to the GitHub API, returning JSON data on success.
+    """
     request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
     if request.status_code == 200:
         return request.json()
     return None
 
 def fetch_stats(username):
+    """
+    Queries the GitHub GraphQL v4 API to fetch the user's stats in a single network request.
+    Fetches repositories count, total stars, total commits, contributed repos, and followers.
+    """
     query = """
     query($login: String!) {
         user(login: $login) {
@@ -67,6 +91,10 @@ def fetch_stats(username):
     }
 
 def make_tspan_row(y, key, value, value_id=None, total_len=74):
+    """
+    Generates a perfectly aligned monospace row for the SVG right-hand details block.
+    Dynamically pads with dots (.) to ensure the visual length is exactly total_len characters.
+    """
     if "." in key:
         parts = key.split(".")
         key_html = ".".join([f'<tspan class="key">{p}</tspan>' for p in parts])
@@ -92,6 +120,10 @@ def make_tspan_row(y, key, value, value_id=None, total_len=74):
     return f'<tspan x="390" y="{y}" class="cc">. </tspan>{key_html}:<tspan class="cc"{dots_id_str}> {dots_str} </tspan><tspan class="value"{val_id_str}>{value}</tspan>'
 
 def generate_right_side(uptime, stats, is_dark=True):
+    """
+    Builds the entire right-side terminal info block dynamically.
+    Ensures every line is exactly 74 characters wide to achieve perfect alignment.
+    """
     fill_color = "#c9d1d9" if is_dark else "#24292f"
     rows = []
     
@@ -151,6 +183,10 @@ def generate_right_side(uptime, stats, is_dark=True):
     return f'<!-- Right Side Terminal Content -->\n<text x="390" y="80" fill="{fill_color}">\n' + "\n".join(rows) + "\n</text>"
 
 def update_svg(filename, stats):
+    """
+    Reads the target SVG file, generates the beautifully aligned right-side terminal content,
+    and replaces the existing right-side block using high-fidelity regex matching.
+    """
     is_dark = "dark" in filename
     uptime = get_uptime(BIRTHDAY)
     
