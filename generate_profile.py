@@ -1,0 +1,127 @@
+import datetime
+
+# Stats gathered
+USERNAME = "JeffCortez23"
+REPOS = 9
+COMMITS = 107
+FOLLOWERS = 1
+
+# Calculate "Uptime" based on a dummy start date or age (e.g., 21 years)
+uptime = "21 years, 2 months, 15 days"
+
+svg_content = f"""<svg width="800" height="520" viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @font-face {{
+      font-family: 'Fira Code';
+      src: local('Fira Code'), local('FiraCode-Regular'), url(https://fonts.gstatic.com/s/firacode/v21/uU9eCBsR6Z2vfE9aq3bL0fxy.woff2) format('woff2');
+    }}
+    .terminal {{ font-family: 'Fira Code', 'Courier New', monospace; font-size: 14px; }}
+    .header {{ fill: #8b949e; font-weight: bold; }}
+    .key {{ fill: #79c0ff; }}
+    .value {{ fill: #c9d1d9; }}
+    .dots {{ fill: #484f58; }}
+    .ascii {{ fill: #7aa2f7; font-size: 12px; white-space: pre; }}
+    .section-title {{ fill: #8b949e; }}
+  </style>
+  <rect width="800" height="520" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  
+  <text x="25" y="40" class="terminal header">elyefris@omarchy ----------------------------------------------------</text>
+  
+  <!-- ASCII Art Left Side -->
+  <text x="30" y="80" class="terminal ascii">
+    <tspan x="30" dy="1.2em">                   -`</tspan>
+    <tspan x="30" dy="1.2em">                  .o+`</tspan>
+    <tspan x="30" dy="1.2em">                 `ooo/</tspan>
+    <tspan x="30" dy="1.2em">                `+oooo:</tspan>
+    <tspan x="30" dy="1.2em">               `+oooooo:</tspan>
+    <tspan x="30" dy="1.2em">               -+oooooo+:</tspan>
+    <tspan x="30" dy="1.2em">             `/:-:++oooo+:</tspan>
+    <tspan x="30" dy="1.2em">            `/++++/+++++++:</tspan>
+    <tspan x="30" dy="1.2em">           `/++++++++++++++:</tspan>
+    <tspan x="30" dy="1.2em">          `/+++ooooooooooooo/`</tspan>
+    <tspan x="30" dy="1.2em">         ./ooossssq激sssooooc`</tspan>
+    <tspan x="30" dy="1.2em">        .ooosssshhhsssssssooooc`</tspan>
+    <tspan x="30" dy="1.2em">       -osssssssshhhsssssssooooc</tspan>
+    <tspan x="30" dy="1.2em">      -osssssssssshhsssssssooooc</tspan>
+    <tspan x="30" dy="1.2em">     /osssssssssssshsssssssooooc</tspan>
+    <tspan x="30" dy="1.2em">    /osssssssssssssshsssssssooooc</tspan>
+    <tspan x="30" dy="1.2em">   /osssssssssssssssshsssssssooooc</tspan>
+    <tspan x="30" dy="1.2em">  /ossssssssssssssssshsssssssooooc</tspan>
+    <tspan x="30" dy="1.2em"> /osssssssssssssssssshsssssssooooc</tspan>
+    <tspan x="30" dy="1.2em">/ossssssssssssssssssshsssssssooooc</tspan>
+  </text>
+
+  <!-- Right Side Info -->
+  <g transform="translate(350, 80)">
+    <text y="0" class="terminal key">OS</text>
+    <text x="18" y="0" class="terminal dots">.......................</text>
+    <text x="210" y="0" class="terminal value">Arch Linux, Android 14, Windows 11</text>
+    
+    <text y="20" class="terminal key">Uptime</text>
+    <text x="54" y="20" class="terminal dots">...................</text>
+    <text x="210" y="20" class="terminal value">{uptime}</text>
+    
+    <text y="40" class="terminal key">Host</text>
+    <text x="36" y="40" class="terminal dots">.....................</text>
+    <text x="210" y="40" class="terminal value">Full Snack Developer &amp; AR Specialist</text>
+    
+    <text y="60" class="terminal key">Kernel</text>
+    <text x="54" y="60" class="terminal dots">...................</text>
+    <text x="210" y="60" class="terminal value">Linux (BTW), Omarchy, Hyprland</text>
+    
+    <text y="80" class="terminal key">IDE</text>
+    <text x="28" y="80" class="terminal dots">......................</text>
+    <text x="210" y="80" class="terminal value">Neovim, VSCode, Unity, Blender</text>
+
+    <text y="110" class="terminal key">Languages.Programming</text>
+    <text x="175" y="110" class="terminal dots">...</text>
+    <text x="210" y="110" class="terminal value">Python, SQL, C#, Kotlin, Java, TS</text>
+    
+    <text y="130" class="terminal key">Languages.Computer</text>
+    <text x="150" y="130" class="terminal dots">......</text>
+    <text x="210" y="130" class="terminal value">HTML, CSS, JSON, LaTeX, YAML</text>
+    
+    <text y="150" class="terminal key">Languages.Real</text>
+    <text x="120" y="150" class="terminal dots">..........</text>
+    <text x="210" y="150" class="terminal value">Spanish, English</text>
+
+    <text y="180" class="terminal key">Hobbies.Software</text>
+    <text x="135" y="180" class="terminal dots">.......</text>
+    <text x="210" y="180" class="terminal value">Linux Ricing, AR Dev, Blender 3D</text>
+    
+    <text y="200" class="terminal key">Hobbies.Hardware</text>
+    <text x="135" y="200" class="terminal dots">.......</text>
+    <text x="210" y="200" class="terminal value">Arduino, Electronics, Robotics</text>
+
+    <text y="235" class="terminal section-title">- Contact -----------------------------------------------------------</text>
+    
+    <text y="255" class="terminal key">Email</text>
+    <text x="45" y="255" class="terminal dots">....................</text>
+    <text x="210" y="255" class="terminal value">jeffcortez2305@gmail.com</text>
+    
+    <text y="275" class="terminal key">LinkedIn</text>
+    <text x="70" y="275" class="terminal dots">.................</text>
+    <text x="210" y="275" class="terminal value">Jeff Cortez</text>
+    
+    <text y="295" class="terminal key">Discord</text>
+    <text x="60" y="295" class="terminal dots">..................</text>
+    <text x="210" y="295" class="terminal value">elyefris</text>
+
+    <text y="330" class="terminal section-title">- GitHub Stats ------------------------------------------------------</text>
+    
+    <text y="350" class="terminal key">Repos</text>
+    <text x="45" y="350" class="terminal dots">....................</text>
+    <text x="210" y="350" class="terminal value">{REPOS}</text>
+    
+    <text y="370" class="terminal key">Commits</text>
+    <text x="60" y="370" class="terminal dots">..................</text>
+    <text x="210" y="370" class="terminal value">{COMMITS}</text>
+    
+    <text y="390" class="terminal key">Followers</text>
+    <text x="80" y="390" class="terminal dots">................</text>
+    <text x="210" y="390" class="terminal value">{FOLLOWERS}</text>
+  </g>
+</svg>"""
+
+with open("profile.svg", "w") as f:
+    f.write(svg_content)

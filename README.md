@@ -1,3 +1,8 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/JeffCortez23/JeffCortez23/main/profile.svg" alt="ElYefris GitHub Profile README" width="850" />
+  <a href="https://github.com/JeffCortez23/JeffCortez23">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/JeffCortez23/JeffCortez23/main/dark_mode.svg">
+      <img alt="ElYefris GitHub Profile README" src="https://raw.githubusercontent.com/JeffCortez23/JeffCortez23/main/light_mode.svg">
+    </picture>
+  </a>
 </div>
