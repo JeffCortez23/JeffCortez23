@@ -2,8 +2,7 @@ import datetime
 from dateutil import relativedelta
 import requests
 import os
-from lxml import etree
-import hashlib
+import re
 
 # Configuration
 USER_NAME = os.environ.get('USER_NAME', 'JeffCortez23')
@@ -67,36 +66,107 @@ def fetch_stats(username):
         'contribs': contribs
     }
 
-def update_svg(filename, stats):
-    uptime = get_uptime(BIRTHDAY)
-    tree = etree.parse(filename)
-    root = tree.getroot()
-    ns = {'svg': 'http://www.w3.org/2000/svg'}
-    
-    # Map of ID to value and desired "dots" length
-    updates = [
-        ('age_data', uptime, 48),
-        ('repo_data', stats['repos'], 21),
-        ('star_data', stats['stars'], 21),
-        ('commit_data', f"{stats['commits']:,}", 19),
-        ('follower_data', stats['followers'], 17),
-        ('contrib_data', stats['contribs'], 15),
-    ]
-    
-    for element_id, value, dot_len in updates:
-        # Search with namespace
-        element = root.find(f".//{{{root.nsmap.get(None, '')}}}*[@id='{element_id}']") if root.nsmap.get(None) else root.find(f".//*[@id='{element_id}']")
-        if element is not None:
-            element.text = str(value)
+def make_tspan_row(y, key, value, value_id=None, total_len=74):
+    if "." in key:
+        parts = key.split(".")
+        key_html = ".".join([f'<tspan class="key">{p}</tspan>' for p in parts])
+    else:
+        key_html = f'<tspan class="key">{key}</tspan>'
         
-        # Update dots if id_dots exists
-        dots_id = f"{element_id}_dots"
-        dots_element = root.find(f".//{{{root.nsmap.get(None, '')}}}*[@id='{dots_id}']") if root.nsmap.get(None) else root.find(f".//*[@id='{dots_id}']")
-        if dots_element is not None:
-            just_len = max(1, dot_len - len(str(value)))
-            dots_element.text = " " + ("." * just_len) + " "
-                
-    tree.write(filename, encoding='utf-8', xml_declaration=True)
+    # Calculate visual length of value (handling HTML entities)
+    raw_val = str(value).replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">")
+    raw_val_len = len(raw_val)
+    if "👻" in raw_val:
+        # 👻 is a double-width char in terminal/monospace rendering
+        raw_val_len += 1
+        
+    num_dots = total_len - len(key) - raw_val_len - 5
+    if num_dots < 1:
+        num_dots = 1
+        
+    dots_str = "." * num_dots
+    
+    dots_id_str = f' id="{value_id}_dots"' if value_id else ''
+    val_id_str = f' id="{value_id}"' if value_id else ''
+    
+    return f'<tspan x="390" y="{y}" class="cc">. </tspan>{key_html}:<tspan class="cc"{dots_id_str}> {dots_str} </tspan><tspan class="value"{val_id_str}>{value}</tspan>'
+
+def generate_right_side(uptime, stats, is_dark=True):
+    fill_color = "#c9d1d9" if is_dark else "#24292f"
+    rows = []
+    
+    # 1. Header (elyefris@omarchy ---------------------------------------------------------)
+    # len("elyefris@omarchy ") = 17 chars. To reach 74, we add 74 - 17 = 57 dashes.
+    rows.append(f'<tspan x="390" y="80" class="title">elyefris@omarchy </tspan><tspan class="cc">---------------------------------------------------------</tspan>')
+    
+    # 2. Core info
+    rows.append(make_tspan_row(105, "OS", "Arch Linux (Omarchy), Android 16 (SM-A566E)"))
+    rows.append(make_tspan_row(125, "Uptime", uptime, "age_data"))
+    rows.append(make_tspan_row(145, "Host", "Software Developer &amp; AR Student"))
+    rows.append(make_tspan_row(165, "Kernel", "Linux (BTW), Hyprland, Ghostty 👻"))
+    rows.append(make_tspan_row(185, "IDE", "Neovim, VSCode, Unity, Blender"))
+    
+    # Spacer
+    rows.append(f'<tspan x="390" y="205" class="cc">.</tspan>')
+    
+    # Languages
+    rows.append(make_tspan_row(225, "Languages.Programming", "Python, SQL, Kotlin, JavaScript, TS, C#"))
+    rows.append(make_tspan_row(245, "Languages.Computer", "HTML, CSS, JSON, SQL"))
+    rows.append(make_tspan_row(265, "Languages.Real", "Spanish, English"))
+    
+    # Spacer
+    rows.append(f'<tspan x="390" y="285" class="cc">.</tspan>')
+    
+    # Hobbies
+    rows.append(make_tspan_row(305, "Hobbies.Software", "Linux Ricing, Studying AR (Unity, Blender)"))
+    rows.append(make_tspan_row(325, "Hobbies.Hardware", "Arduino, Robotics, Electronics"))
+    
+    # Spacer
+    rows.append(f'<tspan x="390" y="345" class="cc">.</tspan>')
+    
+    # Contact Header (- Contact ----------------------------------------------------------------)
+    # len("- Contact ") = 10 chars. To reach 74, we add 74 - 10 = 64 dashes.
+    rows.append(f'<tspan x="390" y="365" class="section">- Contact </tspan><tspan class="cc">----------------------------------------------------------------</tspan>')
+    
+    # Contact Info
+    rows.append(make_tspan_row(390, "Email.Personal", "jeffcortez2305@gmail.com"))
+    rows.append(make_tspan_row(410, "LinkedIn", "Jeff Cortez"))
+    rows.append(make_tspan_row(430, "Discord", "elyefris"))
+    rows.append(make_tspan_row(450, "ORCID", "0009-0003-3692-7916"))
+    
+    # Spacer
+    rows.append(f'<tspan x="390" y="470" class="cc">.</tspan>')
+    
+    # GitHub Stats Header (- GitHub Stats -----------------------------------------------------------)
+    # len("- GitHub Stats ") = 15 chars. To reach 74, we add 74 - 15 = 59 dashes.
+    rows.append(f'<tspan x="390" y="490" class="stats-title">- GitHub Stats </tspan><tspan class="cc">-----------------------------------------------------------</tspan>')
+    
+    # GitHub Stats Info
+    rows.append(make_tspan_row(515, "Repos", str(stats['repos']), "repo_data"))
+    rows.append(make_tspan_row(535, "Contributed", str(stats['contribs']), "contrib_data"))
+    rows.append(make_tspan_row(555, "Stars", str(stats['stars']), "star_data"))
+    rows.append(make_tspan_row(575, "Commits", f"{stats['commits']:,}", "commit_data"))
+    rows.append(make_tspan_row(595, "Followers", str(stats['followers']), "follower_data"))
+    
+    return f'<!-- Right Side Terminal Content -->\n<text x="390" y="80" fill="{fill_color}">\n' + "\n".join(rows) + "\n</text>"
+
+def update_svg(filename, stats):
+    is_dark = "dark" in filename
+    uptime = get_uptime(BIRTHDAY)
+    
+    right_side = generate_right_side(uptime, stats, is_dark=is_dark)
+    
+    with open(filename, "r") as f:
+        content = f.read()
+        
+    # Replace from <!-- Right Side Terminal Content --> to </svg>
+    pattern = r'<!-- Right Side Terminal Content -->.*?</svg>'
+    replacement = f'{right_side}\n</svg>'
+    
+    new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+    
+    with open(filename, "w") as f:
+        f.write(new_content)
 
 if __name__ == '__main__':
     print(f"Updating profile for {USER_NAME}...")
