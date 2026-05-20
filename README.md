@@ -3,7 +3,7 @@
 # ⚡ Jeff Cortez | Full Snack Developer 🍕
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mrf7/mrf7/main/archlinux.gif" width="600" />
+  <img src="https://raw.githubusercontent.com/Anmol-Baranwal/Cool-GIFs-for-GitHub/main/Arch-Linux.gif" width="600" />
 </p>
 
 <div align="center">
@@ -22,14 +22,11 @@
 
 ### 🛠️ My Toolbox
 <p align="left">
-  <!-- Web -->
   <img src="https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white" />
   <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white" />
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
-  <!-- Mobile -->
   <img src="https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white" />
   <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white" />
-  <!-- Game Dev -->
   <img src="https://img.shields.io/badge/Unity-FFFFFF?style=flat-square&logo=unity&logoColor=black" />
   <img src="https://img.shields.io/badge/C%23-239120?style=flat-square&logo=c-sharp&logoColor=white" />
 </p>
