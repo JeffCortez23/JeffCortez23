@@ -1,3 +1,5 @@
+# Hi there, I'm Jeff! 👋
+
 # ⚡ Jeff Cortez | Full Snack Developer 🍕
 
 <p align="center">
