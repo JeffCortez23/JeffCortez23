@@ -33,9 +33,9 @@
 
 ### 📊 GitHub Stats
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=JeffCortez23&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="Stats de Jeff" />
+  <img src="https://github-readme-stats.vercel.app/api?username=JeffCortez23&show_icons=true&theme=tokyonight" alt="Stats de Jeff" />
   <br/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=JeffCortez23&theme=tokyonight&hide_border=true" alt="Streak de Jeff" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=JeffCortez23&theme=tokyonight" alt="Streak de Jeff" />
 </p>
 
 ### 🖥️ Setup (I use Arch BTW)
@@ -48,4 +48,6 @@
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=JeffCortez23&color=7aa2f7&style=flat-square&label=PROFILE+VIEWS" alt="Views" />
+</p>
+label=PROFILE+VIEWS" alt="Views" />
 </p>
