@@ -11,36 +11,65 @@ def convert_photo_to_ascii(image_path, width=40, height=35):
     # Convert to grayscale
     img_gray = img.convert('L')
     
-    # Enhance contrast (Optimized Option 4: 1.4)
+    # Enhance contrast
     enhancer = ImageEnhance.Contrast(img_gray)
-    img_contrast = enhancer.enhance(1.4)
+    img_contrast = enhancer.enhance(1.3)
     
-    # Enhance sharpness (Optimized Option 4: 1.2)
+    # Enhance sharpness
     sharpness = ImageEnhance.Sharpness(img_contrast)
-    img_sharp = sharpness.enhance(1.2)
+    img_sharp = sharpness.enhance(1.3)
     
     # Resize to target width and height
     img_resized = img_sharp.resize((width, height), Image.Resampling.LANCZOS)
     
-    # Sigmoid thresholding ramp with 100% transparent background (spaces)
-    bg_thresh = 130
-    ramps = [45, 80, 110]
+    # 1. Flood fill to find contiguous background starting from borders
+    bg_mask = [[False for _ in range(width)] for _ in range(height)]
+    bg_threshold = 120
+    
+    # Seeds for BFS: all border coordinates (top, bottom, left, right)
+    seeds = []
+    for x in range(width):
+        seeds.append((x, 0))
+        seeds.append((x, height - 1))
+    for y in range(height):
+        seeds.append((0, y))
+        seeds.append((width - 1, y))
+        
+    # Queue for BFS flood fill
+    queue = []
+    for sx, sy in seeds:
+        val = img_resized.getpixel((sx, sy))
+        if val > bg_threshold:
+            bg_mask[sy][sx] = True
+            queue.append((sx, sy))
+            
+    # Breadth-First Search (BFS) to flood connected light pixels
+    dirs = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+    while queue:
+        cx, cy = queue.pop(0)
+        for dx, dy in dirs:
+            nx, ny = cx + dx, cy + dy
+            if 0 <= nx < width and 0 <= ny < height:
+                if not bg_mask[ny][nx]:
+                    pixel_val = img_resized.getpixel((nx, ny))
+                    if pixel_val > bg_threshold:
+                        bg_mask[ny][nx] = True
+                        queue.append((nx, ny))
+                        
+    # 2. Render ASCII using a beautiful detailed character ramp for the subject
+    chars = ["@", "%", "#", "*", "+", "=", "-", ":", ".", " "]
     
     ascii_rows = []
     for y in range(height):
         row = ""
         for x in range(width):
-            pixel = img_resized.getpixel((x, y))
-            if pixel > bg_thresh:
+            if bg_mask[y][x]:
                 row += " "
-            elif pixel < ramps[0]:
-                row += "@"
-            elif pixel < ramps[1]:
-                row += "#"
-            elif pixel < ramps[2]:
-                row += "*"
             else:
-                row += "-"
+                pixel = img_resized.getpixel((x, y))
+                # Map the pixel value (0-255) to character list index
+                idx = min(int(pixel / 25.6), len(chars) - 1)
+                row += chars[idx]
         ascii_rows.append(row)
         
     return ascii_rows
