@@ -1,6 +1,8 @@
-<a href="https://github.com/JeffCortez23/JeffCortez23">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="dark_mode.svg">
-    <img alt="ElYefris GitHub Profile README" src="light_mode.svg">
-  </picture>
-</a>
+<div align="center">
+  <a href="https://github.com/JeffCortez23/JeffCortez23">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/JeffCortez23/JeffCortez23/main/dark_mode.svg?v=3">
+      <img alt="ElYefris GitHub Profile README" src="https://raw.githubusercontent.com/JeffCortez23/JeffCortez23/main/light_mode.svg?v=3">
+    </picture>
+  </a>
+</div>
