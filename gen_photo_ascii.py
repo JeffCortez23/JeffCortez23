@@ -11,29 +11,36 @@ def convert_photo_to_ascii(image_path, width=40, height=35):
     # Convert to grayscale
     img_gray = img.convert('L')
     
-    # Enhance contrast
+    # Enhance contrast (Optimized Option 4: 1.4)
     enhancer = ImageEnhance.Contrast(img_gray)
-    img_contrast = enhancer.enhance(1.6)
+    img_contrast = enhancer.enhance(1.4)
     
-    # Enhance sharpness
+    # Enhance sharpness (Optimized Option 4: 1.2)
     sharpness = ImageEnhance.Sharpness(img_contrast)
-    img_sharp = sharpness.enhance(1.5)
+    img_sharp = sharpness.enhance(1.2)
     
     # Resize to target width and height
     img_resized = img_sharp.resize((width, height), Image.Resampling.LANCZOS)
     
-    # ASCII character ramp (from dark to light)
-    # Simple, high-contrast ramp that renders extremely well in SVGs
-    chars = ["@", "%", "#", "*", "+", "=", "-", ":", ".", " "]
+    # Sigmoid thresholding ramp with 100% transparent background (spaces)
+    bg_thresh = 130
+    ramps = [45, 80, 110]
     
     ascii_rows = []
     for y in range(height):
         row = ""
         for x in range(width):
             pixel = img_resized.getpixel((x, y))
-            # Map pixel values (0-255) to character list index (0-9)
-            idx = min(int(pixel / 25.6), len(chars) - 1)
-            row += chars[idx]
+            if pixel > bg_thresh:
+                row += " "
+            elif pixel < ramps[0]:
+                row += "@"
+            elif pixel < ramps[1]:
+                row += "#"
+            elif pixel < ramps[2]:
+                row += "*"
+            else:
+                row += "-"
         ascii_rows.append(row)
         
     return ascii_rows
