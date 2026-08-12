@@ -23,7 +23,7 @@ jobs:
         run: python today.py
         env:
           USER_NAME: ${{ github.repository_owner }}
-          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
@@ -31,3 +31,4 @@ jobs:
           git add dark_mode.svg light_mode.svg
           git commit -m "docs: daily profile update" || exit 0
           git push
+
