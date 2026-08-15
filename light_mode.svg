@@ -72,7 +72,7 @@ text, tspan {white-space: pre;}
 <text x="390" y="90" fill="#24292f" class="right-text">
 <tspan x="390" y="90" class="title">elyefris@omarchy </tspan><tspan class="cc">---------------------------------------------------------</tspan>
 <tspan x="390" y="120" class="cc">. </tspan><tspan class="key">OS</tspan>:<tspan class="cc"> ........................ </tspan><tspan class="value">Arch Linux (Omarchy), Android 16 (SM-A566E)</tspan>
-<tspan x="390" y="145" class="cc">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="cc" id="age_data_dots"> .................................... </tspan><tspan class="value" id="age_data">25 years, 2 months, 22 days</tspan>
+<tspan x="390" y="145" class="cc">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="cc" id="age_data_dots"> .................................... </tspan><tspan class="value" id="age_data">25 years, 2 months, 23 days</tspan>
 <tspan x="390" y="170" class="cc">. </tspan><tspan class="key">Host</tspan>:<tspan class="cc"> .................................. </tspan><tspan class="value">Software Developer &amp; AR Student</tspan>
 <tspan x="390" y="195" class="cc">. </tspan><tspan class="key">Kernel</tspan>:<tspan class="cc"> .............................. </tspan><tspan class="value">Linux (BTW), Hyprland, Ghostty 👻</tspan>
 <tspan x="390" y="220" class="cc">. </tspan><tspan class="key">IDE</tspan>:<tspan class="cc"> .................................... </tspan><tspan class="value">Neovim, VSCode, Unity, Blender</tspan>
