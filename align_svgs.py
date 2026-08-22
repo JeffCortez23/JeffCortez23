@@ -31,13 +31,13 @@ def generate_body_block(uptime="24 years, 11 months, 27 days"):
         make_tspan_row(140, "Uptime", uptime, "age_data"),
         make_tspan_row(160, "Host", "Software Developer &amp; AR Student"),
         make_tspan_row(180, "Kernel", "Linux (BTW), Hyprland, Ghostty 👻"),
-        make_tspan_row(200, "IDE", "Neovim, VSCode, Unity, Blender"),
+        make_tspan_row(200, "IDE", "Neovim, Ghostty, VSCode, Zed"),
         "",
         make_tspan_row(235, "Languages.Programming", "Python, SQL, Kotlin, JavaScript, TS, C#"),
         make_tspan_row(255, "Languages.Computer", "HTML, CSS, JSON, SQL"),
         make_tspan_row(275, "Languages.Real", "Spanish, English"),
         "",
-        make_tspan_row(310, "Hobbies.Software", "Linux Ricing, Studying AR (Unity, Blender)"),
+        make_tspan_row(310, "Hobbies.Software", "Linux Ricing, Omarchy Plugins, Shell Scripting"),
         make_tspan_row(330, "Hobbies.Hardware", "Arduino, Robotics, Electronics")
     ]
     return f'<text x="390" y="120" fill="VAR_COLOR">\n' + "\n".join(rows) + "\n</text>"

@@ -71,7 +71,7 @@ svg_content = f"""<svg width="800" height="520" viewBox="0 0 800 520" fill="none
     
     <text y="80" class="terminal key">IDE</text>
     <text x="28" y="80" class="terminal dots">......................</text>
-    <text x="210" y="80" class="terminal value">Neovim, VSCode, Unity, Blender</text>
+    <text x="210" y="80" class="terminal value">Neovim, Ghostty, VSCode, Zed</text>
 
     <text y="110" class="terminal key">Languages.Programming</text>
     <text x="175" y="110" class="terminal dots">...</text>
@@ -87,7 +87,7 @@ svg_content = f"""<svg width="800" height="520" viewBox="0 0 800 520" fill="none
 
     <text y="180" class="terminal key">Hobbies.Software</text>
     <text x="135" y="180" class="terminal dots">.......</text>
-    <text x="210" y="180" class="terminal value">Linux Ricing, AR Dev, Blender 3D</text>
+    <text x="210" y="180" class="terminal value">Linux Ricing, Omarchy Plugins, Shell</text>
     
     <text y="200" class="terminal key">Hobbies.Hardware</text>
     <text x="135" y="200" class="terminal dots">.......</text>
