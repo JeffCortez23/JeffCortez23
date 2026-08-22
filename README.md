@@ -95,12 +95,9 @@
 <br>
 
 <div align="center">
-  <h2>📊 GitHub Stats & Streak</h2>
+  <h2>📊 GitHub Activity Graph</h2>
   <p align="center">
-    <img src="https://streak-stats.demolab.com/?user=JeffCortez23&theme=tokyonight&hide_border=true&background=0D1117" alt="Jeff Cortez's GitHub Streak" />
-  </p>
-  <p align="center">
-    <img src="https://github-readme-activity-graph.vercel.app/graph?username=JeffCortez23&theme=tokyo-night&hide_border=true&bg_color=0D1117" alt="Activity Graph" />
+    <img src="https://github-readme-activity-graph.vercel.app/graph?username=JeffCortez23&theme=tokyo-night&hide_border=true&bg_color=0D1117" alt="Activity Graph" width="95%" />
   </p>
 </div>
 
