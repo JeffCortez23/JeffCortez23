@@ -11,40 +11,23 @@ HEADERS = {'authorization': f'token {ACCESS_TOKEN}'} if ACCESS_TOKEN else {}
 BIRTHDAY = datetime.datetime(2001, 5, 23)
 
 def format_plural(unit):
-    """
-    Returns 's' if the unit value is not 1, to properly format singular/plural nouns.
-    """
     return 's' if unit != 1 else ''
 
 def get_uptime(birthday):
-    """
-    Calculates the detailed duration since birth (Uptime) in years, months, and days,
-    handling singular/plural units and appending a birthday cake emoji on birthdays.
-    """
     diff = relativedelta.relativedelta(datetime.datetime.today(), birthday)
-    
     years_str = f"{diff.years} year{format_plural(diff.years)}"
     months_str = f"{diff.months} month{format_plural(diff.months)}"
     days_str = f"{diff.days} day{format_plural(diff.days)}"
-    
     birthday_emoji = " 🎂" if (diff.months == 0 and diff.days == 0) else ""
-    
     return f"{years_str}, {months_str}, {days_str}{birthday_emoji}"
 
 def simple_request(query, variables):
-    """
-    Performs a GraphQL POST request to the GitHub API, returning JSON data on success.
-    """
     request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables': variables}, headers=HEADERS)
     if request.status_code == 200:
         return request.json()
     return None
 
 def fetch_stats(username):
-    """
-    Queries the GitHub GraphQL v4 API to fetch the user's stats in a single network request.
-    Fetches repositories count, total stars, total commits, contributed repos, and followers.
-    """
     query = """
     query($login: String!) {
         user(login: $login) {
@@ -72,7 +55,7 @@ def fetch_stats(username):
     }
     """
     data = simple_request(query, {'login': username})
-    if not data:
+    if not data or 'data' not in data or not data['data']['user']:
         return None
     
     user = data['data']['user']
@@ -91,21 +74,15 @@ def fetch_stats(username):
     }
 
 def make_tspan_row(y, key, value, value_id=None, total_len=74):
-    """
-    Generates a perfectly aligned monospace row for the SVG right-hand details block.
-    Dynamically pads with dots (.) to ensure the visual length is exactly total_len characters.
-    """
     if "." in key:
         parts = key.split(".")
         key_html = ".".join([f'<tspan class="key">{p}</tspan>' for p in parts])
     else:
         key_html = f'<tspan class="key">{key}</tspan>'
         
-    # Calculate visual length of value (handling HTML entities)
     raw_val = str(value).replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">")
     raw_val_len = len(raw_val)
-    if "👻" in raw_val:
-        # 👻 is a double-width char in terminal/monospace rendering
+    if "👻" in raw_val or "🚀" in raw_val:
         raw_val_len += 1
         
     num_dots = total_len - len(key) - raw_val_len - 5
@@ -113,51 +90,44 @@ def make_tspan_row(y, key, value, value_id=None, total_len=74):
         num_dots = 1
         
     dots_str = "." * num_dots
-    
     dots_id_str = f' id="{value_id}_dots"' if value_id else ''
     val_id_str = f' id="{value_id}"' if value_id else ''
     
     return f'<tspan x="390" y="{y}" class="cc">. </tspan>{key_html}:<tspan class="cc"{dots_id_str}> {dots_str} </tspan><tspan class="value"{val_id_str}>{value}</tspan>'
 
 def generate_right_side(uptime, stats, is_dark=True):
-    """
-    Builds the entire right-side terminal info block dynamically.
-    Ensures every line is exactly 74 characters wide to achieve perfect alignment.
-    """
     fill_color = "#c9d1d9" if is_dark else "#24292f"
     rows = []
     
-    # 1. Header (elyefris@omarchy ---------------------------------------------------------)
-    # len("elyefris@omarchy ") = 17 chars. To reach 74, we add 74 - 17 = 57 dashes.
+    # 1. Header
     rows.append(f'<tspan x="390" y="90" class="title">elyefris@omarchy </tspan><tspan class="cc">---------------------------------------------------------</tspan>')
     
-    # 2. Core info
-    rows.append(make_tspan_row(120, "OS", "Arch Linux (Omarchy), Android 16 (SM-A566E)"))
+    # 2. Core info (Arch, Omarchy, CachyOS Kernel)
+    rows.append(make_tspan_row(120, "OS", "Arch Linux (Omarchy) · CachyOS Kernel"))
     rows.append(make_tspan_row(145, "Uptime", uptime, "age_data"))
-    rows.append(make_tspan_row(170, "Host", "Software Developer &amp; AR Student"))
-    rows.append(make_tspan_row(195, "Kernel", "Linux (BTW), Hyprland, Ghostty 👻"))
-    rows.append(make_tspan_row(220, "IDE", "Neovim, VSCode, Unity, Blender"))
+    rows.append(make_tspan_row(170, "Host", "Systems &amp; Software Engineering Student"))
+    rows.append(make_tspan_row(195, "Kernel", "Linux-CachyOS (Zen 2 Optimized), Hyprland 🚀"))
+    rows.append(make_tspan_row(220, "IDE", "Neovim, Ghostty, VSCode, Zed"))
     
     # Spacer
     rows.append(f'<tspan x="390" y="240" class="cc">.</tspan>')
     
-    # Languages
-    rows.append(make_tspan_row(265, "Languages.Programming", "Python, SQL, Kotlin, JavaScript, TS, C#"))
-    rows.append(make_tspan_row(290, "Languages.Computer", "HTML, CSS, JSON, SQL"))
+    # Languages (with QML & Bash)
+    rows.append(make_tspan_row(265, "Languages.Programming", "Python, QML, Bash, Kotlin, TS, C#, SQL"))
+    rows.append(make_tspan_row(290, "Languages.Computer", "HTML, CSS, JSON, YAML, LaTeX"))
     rows.append(make_tspan_row(315, "Languages.Real", "Spanish, English"))
     
     # Spacer
     rows.append(f'<tspan x="390" y="335" class="cc">.</tspan>')
     
-    # Hobbies
-    rows.append(make_tspan_row(360, "Hobbies.Software", "Linux Ricing, Studying AR (Unity, Blender)"))
-    rows.append(make_tspan_row(385, "Hobbies.Hardware", "Arduino, Robotics, Electronics"))
+    # Hobbies (Linux Ricing, Omarchy Plugins, Shell Scripting, Embedded)
+    rows.append(make_tspan_row(360, "Hobbies.Software", "Linux Ricing, Omarchy Plugins, Shell Scripting"))
+    rows.append(make_tspan_row(385, "Hobbies.Hardware", "Microcontrollers, Arduino, Electronics"))
     
     # Spacer
     rows.append(f'<tspan x="390" y="405" class="cc">.</tspan>')
     
-    # Contact Header (- Contact ----------------------------------------------------------------)
-    # len("- Contact ") = 10 chars. To reach 74, we add 74 - 10 = 64 dashes.
+    # Contact Header
     rows.append(f'<tspan x="390" y="430" class="section">- Contact </tspan><tspan class="cc">----------------------------------------------------------------</tspan>')
     
     # Contact Info
@@ -169,8 +139,7 @@ def generate_right_side(uptime, stats, is_dark=True):
     # Spacer
     rows.append(f'<tspan x="390" y="555" class="cc">.</tspan>')
     
-    # GitHub Stats Header (- GitHub Stats -----------------------------------------------------------)
-    # len("- GitHub Stats ") = 15 chars. To reach 74, we add 74 - 15 = 59 dashes.
+    # GitHub Stats Header
     rows.append(f'<tspan x="390" y="580" class="stats-title">- GitHub Stats </tspan><tspan class="cc">-----------------------------------------------------------</tspan>')
     
     # GitHub Stats Info
@@ -182,24 +151,112 @@ def generate_right_side(uptime, stats, is_dark=True):
     
     return f'<!-- Right Side Terminal Content -->\n<text x="390" y="90" fill="{fill_color}" class="right-text">\n' + "\n".join(rows) + "\n</text>"
 
+# Crisp, iconic high-resolution Arch Linux ASCII Art (36 lines, vertically centered)
+ARCH_ASCII_LINES = [
+    "                   -`                   ",
+    "                  .o+`                  ",
+    "                 `ooo/                  ",
+    "                `+oooo:                 ",
+    "               `+oooooo:                ",
+    "               -+oooooo+:               ",
+    "             `/:-:++oooo+:              ",
+    "            `/++++/+++++++:             ",
+    "           `/++++++++++++++:            ",
+    "          `/+++ooooooooooooo/`          ",
+    "         ./ooosssso++osssssso+`         ",
+    "        .oossssso-````/ossssss+`        ",
+    "       -osssssso.      :ssssssso.       ",
+    "      :osssssss/        osssso+++.      ",
+    "     /ossssssss/        +ssssooo/-      ",
+    "   `/ossssso+/:-        -:/+osssso+-    ",
+    "  `+sso+:-`                 `.-/+oso:   ",
+    " `++:.                           `-/+/  ",
+    " .`                                 `/  ",
+    "                                        ",
+    "       ██████╗ ██████╗  ██████╗██╗  ██╗ ",
+    "      ██╔══██╗██╔══██╗██╔════╝██║  ██║ ",
+    "      ███████║██████╔╝██║     ███████║ ",
+    "      ██╔══██║██╔══██╗██║     ██╔══██║ ",
+    "      ██║  ██║██║  ██║╚██████╗██║  ██║ ",
+    "      ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ ",
+    "          ██╗     ██╗███╗   ██╗██╗   ██╗",
+    "          ██║     ██║████╗  ██║██║   ██║",
+    "          ██║     ██║██╔██╗ ██║██║   ██║",
+    "          ██║     ██║██║╚██╗██║██║   ██║",
+    "          ███████╗██║██║ ╚████║╚██████╔╝",
+    "          ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ "
+]
+
+def generate_ascii_block():
+    spans = [f'<tspan x="35" y="105" class="ascii">{ARCH_ASCII_LINES[0]}</tspan>']
+    for line in ARCH_ASCII_LINES[1:]:
+        spans.append(f'<tspan x="35" dy="17" class="ascii">{line}</tspan>')
+    return "\n".join(spans)
+
+def create_base_svg(is_dark=True):
+    bg_color = "#0d1117" if is_dark else "#f6f8fa"
+    border_color = "#30363d" if is_dark else "#d0d7de"
+    header_text_color = "#8b949e" if is_dark else "#57606a"
+    line_color = "#30363d" if is_dark else "#d0d7de"
+    
+    grad1 = "#7aa2f7" if is_dark else "#0969da"
+    grad2 = "#89ddff" if is_dark else "#1f6feb"
+    grad3 = "#bb9af3" if is_dark else "#8250df"
+    
+    key_color = "#ffa657" if is_dark else "#bf4b00"
+    val_color = "#a5d6ff" if is_dark else "#0550ae"
+    cc_color = "#444b5a" if is_dark else "#8c959f"
+    title_color = "#7bb5ed" if is_dark else "#0969da"
+    section_color = "#bb9af3" if is_dark else "#8250df"
+    stats_color = "#ff9e64" if is_dark else "#cf222e"
+    
+    ascii_block = generate_ascii_block()
+    
+    return f"""<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', 'Fira Code', 'Consolas', monospace" width="1120px" height="750px" viewBox="0 0 1120 750" font-size="14px">
+<defs>
+<linearGradient id="asciiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+  <stop offset="0%" stop-color="{grad1}"/>
+  <stop offset="50%" stop-color="{grad2}"/>
+  <stop offset="100%" stop-color="{grad3}"/>
+</linearGradient>
+</defs>
+<style>
+.key {{fill: {key_color}; font-weight: bold;}}
+.value {{fill: {val_color};}}
+.cc {{fill: {cc_color};}}
+.ascii {{fill: url(#asciiGrad); font-weight: bold; font-size: 11.5px; font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;}}
+.title {{fill: {title_color}; font-weight: bold;}}
+.section {{fill: {section_color}; font-weight: bold;}}
+.stats-title {{fill: {stats_color}; font-weight: bold;}}
+.right-text {{font-size: 15.5px;}}
+text, tspan {{white-space: pre;}}
+</style>
+<rect width="1120" height="750" fill="{bg_color}" stroke="{border_color}" stroke-width="2" rx="15"/>
+
+<!-- Terminal Header -->
+<circle cx="25" cy="25" r="6" fill="#ff5f56"/>
+<circle cx="45" cy="25" r="6" fill="#ffbd2e"/>
+<circle cx="65" cy="25" r="6" fill="#27c93f"/>
+<text x="90" y="30" fill="{header_text_color}" font-size="13px" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">elyefris@omarchy — Terminal</text>
+<line x1="15" y1="45" x2="1105" y2="45" stroke="{line_color}" stroke-width="1.5"/>
+
+<!-- Left Side Arch Linux ASCII Art -->
+<text x="35" y="105" class="ascii">
+{ascii_block}
+</text>
+
+<!-- Right Side Terminal Content -->
+</svg>"""
+
 def update_svg(filename, stats):
-    """
-    Reads the target SVG file, generates the beautifully aligned right-side terminal content,
-    and replaces the existing right-side block using high-fidelity regex matching.
-    """
     is_dark = "dark" in filename
     uptime = get_uptime(BIRTHDAY)
     
+    base_svg = create_base_svg(is_dark=is_dark)
     right_side = generate_right_side(uptime, stats, is_dark=is_dark)
     
-    with open(filename, "r") as f:
-        content = f.read()
-        
-    # Replace from <!-- Right Side Terminal Content --> to </svg>
-    pattern = r'<!-- Right Side Terminal Content -->.*?</svg>'
-    replacement = f'{right_side}\n</svg>'
-    
-    new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+    new_content = base_svg.replace("<!-- Right Side Terminal Content -->", right_side)
     
     with open(filename, "w") as f:
         f.write(new_content)
@@ -208,9 +265,20 @@ if __name__ == '__main__':
     print(f"Updating profile for {USER_NAME}...")
     stats = fetch_stats(USER_NAME)
     if not stats:
-        print("Failed to fetch stats, using defaults.")
-        stats = {'repos': 9, 'stars': 3, 'commits': 107, 'followers': 1, 'contribs': 12}
-    
+        print("Failed to fetch GraphQL stats, querying REST API...")
+        try:
+            r = requests.get(f'https://api.github.com/users/{USER_NAME}')
+            u = r.json()
+            stats = {
+                'repos': u.get('public_repos', 10),
+                'stars': 3,
+                'commits': 236,
+                'followers': u.get('followers', 2),
+                'contribs': 2
+            }
+        except:
+            stats = {'repos': 10, 'stars': 3, 'commits': 236, 'followers': 2, 'contribs': 2}
+            
     print(f"Stats: {stats}")
     update_svg('dark_mode.svg', stats)
     update_svg('light_mode.svg', stats)

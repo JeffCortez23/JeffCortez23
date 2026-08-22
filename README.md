@@ -78,16 +78,16 @@
   <h2>🛠️ Tech Stack & Arsenal</h2>
   <p>
     <img src="https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white" alt="Arch Linux"/>
+    <img src="https://img.shields.io/badge/CachyOS_Kernel-10B981?style=for-the-badge&logo=linux&logoColor=white" alt="CachyOS"/>
     <img src="https://img.shields.io/badge/Hyprland-00B0FF?style=for-the-badge&logo=wayland&logoColor=white" alt="Hyprland"/>
-    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
-    <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin"/>
-    <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java"/>
-    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
-    <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C#"/>
     <img src="https://img.shields.io/badge/Qt_QML-41CD52?style=for-the-badge&logo=qt&logoColor=white" alt="Qt/QML"/>
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
     <img src="https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="Bash"/>
-    <img src="https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white" alt="Unity"/>
-    <img src="https://img.shields.io/badge/Blender-E87D0D?style=for-the-badge&logo=blender&logoColor=white" alt="Blender"/>
+    <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin"/>
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+    <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java"/>
+    <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C#"/>
+    <img src="https://img.shields.io/badge/Ghostty-FF5F56?style=for-the-badge&logo=ghost&logoColor=white" alt="Ghostty"/>
     <img src="https://img.shields.io/badge/Neovim-57A143?style=for-the-badge&logo=neovim&logoColor=white" alt="Neovim"/>
   </p>
 </div>
@@ -95,15 +95,17 @@
 <br>
 
 <div align="center">
-  <h2>📊 GitHub Stats & Metrics</h2>
+  <h2>📊 GitHub Stats & Streak</h2>
   <p align="center">
-    <img src="https://github-readme-stats.vercel.app/api?username=JeffCortez23&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117" alt="Jeff Cortez's GitHub Stats" />
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=JeffCortez23&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117" alt="Top Languages" />
+    <img src="https://streak-stats.demolab.com/?user=JeffCortez23&theme=tokyonight&hide_border=true&background=0D1117" alt="Jeff Cortez's GitHub Streak" />
+  </p>
+  <p align="center">
+    <img src="https://github-readme-activity-graph.vercel.app/graph?username=JeffCortez23&theme=tokyo-night&hide_border=true&bg_color=0D1117" alt="Activity Graph" />
   </p>
 </div>
 
 <br>
 
 <div align="center">
-  <sub>Crafted with 💖 on Arch Linux & Omarchy</sub>
+  <sub>Crafted with 💖 on Arch Linux & Omarchy (CachyOS Kernel)</sub>
 </div>

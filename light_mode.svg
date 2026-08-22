@@ -1,26 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', 'Fira Code', 'Consolas', monospace" width="1120px" height="740px" viewBox="0 0 1120 740" font-size="14px">
+<svg xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', 'Fira Code', 'Consolas', monospace" width="1120px" height="750px" viewBox="0 0 1120 750" font-size="14px">
 <defs>
 <linearGradient id="asciiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
   <stop offset="0%" stop-color="#0969da"/>
-  <stop offset="50%" stop-color="#4f46e5"/>
+  <stop offset="50%" stop-color="#1f6feb"/>
   <stop offset="100%" stop-color="#8250df"/>
 </linearGradient>
 </defs>
 <style>
-.key {fill: #953800; font-weight: bold;}
-.value {fill: #0a3069;}
-.addColor {fill: #1a7f37;}
-.delColor {fill: #cf222e;}
-.cc {fill: #afbac5;}
-.ascii {fill: url(#asciiGrad); font-weight: bold; font-size: 11.5px; font-family: 'Courier New', Courier, monospace;}
+.key {fill: #bf4b00; font-weight: bold;}
+.value {fill: #0550ae;}
+.cc {fill: #8c959f;}
+.ascii {fill: url(#asciiGrad); font-weight: bold; font-size: 11.5px; font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;}
 .title {fill: #0969da; font-weight: bold;}
 .section {fill: #8250df; font-weight: bold;}
-.stats-title {fill: #bc4c00; font-weight: bold;}
+.stats-title {fill: #cf222e; font-weight: bold;}
 .right-text {font-size: 15.5px;}
 text, tspan {white-space: pre;}
 </style>
-<rect width="1120" height="740" fill="#f6f8fa" stroke="#d0d7de" stroke-width="2" rx="15"/>
+<rect width="1120" height="750" fill="#f6f8fa" stroke="#d0d7de" stroke-width="2" rx="15"/>
 
 <!-- Terminal Header -->
 <circle cx="25" cy="25" r="6" fill="#ff5f56"/>
@@ -29,60 +27,57 @@ text, tspan {white-space: pre;}
 <text x="90" y="30" fill="#57606a" font-size="13px" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">elyefris@omarchy — Terminal</text>
 <line x1="15" y1="45" x2="1105" y2="45" stroke="#d0d7de" stroke-width="1.5"/>
 
-<!-- Left Side Sharp Photo ASCII Art (Centered Vertically) -->
-<text x="35" y="95" class="ascii">
-<tspan x="35" y="95">    %@@@@@@@@@@@@%##*+                  </tspan>
-<tspan x="35" dy="9">  +%@@@@@@@@@@@@@@@@@@@@*               </tspan>
-<tspan x="35" dy="9">  @@@@@@@@@@@@@@@@@@@@@@@%              </tspan>
-<tspan x="35" dy="9"> %@@@@@@@@@#*****#%@@@@@@@%             </tspan>
-<tspan x="35" dy="9">%@@@@@@@#*+====+++++#%@@@@@@            </tspan>
-<tspan x="35" dy="9">@@@@@@#+=======+++++++#%@@@@%           </tspan>
-<tspan x="35" dy="9">@@@@#+========-=++*##*++*%@@@*          </tspan>
-<tspan x="35" dy="9">#@@@+========-+##**++##***#@@%          </tspan>
-<tspan x="35" dy="9">  @@===-----=***+=++##%*++=+@%*%        </tspan>
-<tspan x="35" dy="9">   %=-===--=#=-=+*#@%#*+=++++#%#+       </tspan>
-<tspan x="35" dy="9">    ******#++*-+++++=-====++++*%*       </tspan>
-<tspan x="35" dy="9">        *##   ***+=-===-==++**+*#+      </tspan>
-<tspan x="35" dy="9">       +##     +**#*=---==++****+       </tspan>
-<tspan x="35" dy="9">                ++*#+==++++**+**        </tspan>
-<tspan x="35" dy="9">          +    +##*+=+***+=+*++**+      </tspan>
-<tspan x="35" dy="9">          *+       +*#%#+=-+*+*#@@#     </tspan>
-<tspan x="35" dy="9">          *+    +++***++++=+**##*@@%*+  </tspan>
-<tspan x="35" dy="9">             +*+       ++++**##**#@@+**+</tspan>
-<tspan x="35" dy="9">                       +++**##*+**%#+**+</tspan>
-<tspan x="35" dy="9">                        +***+  ++*###++#</tspan>
-<tspan x="35" dy="9">              %#*     ++++      +**##+*#</tspan>
-<tspan x="35" dy="9">            ++**@@+               +*+  *</tspan>
-<tspan x="35" dy="9">           +*++*%%*                ++  *</tspan>
-<tspan x="35" dy="9">       **+ +*=+***#+                   #</tspan>
-<tspan x="35" dy="9">      #*+++*+++=+*=#*                 %%</tspan>
-<tspan x="35" dy="9">     +#%+==+#+=+-==-+#              +++#</tspan>
-<tspan x="35" dy="9">     #=+*==-+*===-+*=+*       +      #  </tspan>
-<tspan x="35" dy="9">    +*#=#=--+*-:+*=+#++*          #*+#  </tspan>
-<tspan x="35" dy="9">       + *=+*+-==+*-**++++     * *#%+*  </tspan>
-<tspan x="35" dy="9">         *#+*-==-+*# +=*+*#*+ +++*   ++ </tspan>
-<tspan x="35" dy="9">    +*+   **#+*+-=#+  ++* ##*           </tspan>
-<tspan x="35" dy="9">    +*  *++*%+===+*     +  #*           </tspan>
-<tspan x="35" dy="9">     #+    ###*#*+  *+**#+  +*  +       </tspan>
-<tspan x="35" dy="9">      +  +*%#  +     **@+    *+  +    + </tspan>
-<tspan x="35" dy="9">      + +###%   *   ** +      *%+ +*  **</tspan>
+<!-- Left Side Arch Linux ASCII Art -->
+<text x="35" y="105" class="ascii">
+<tspan x="35" y="105" class="ascii">                   -`                   </tspan>
+<tspan x="35" dy="17" class="ascii">                  .o+`                  </tspan>
+<tspan x="35" dy="17" class="ascii">                 `ooo/                  </tspan>
+<tspan x="35" dy="17" class="ascii">                `+oooo:                 </tspan>
+<tspan x="35" dy="17" class="ascii">               `+oooooo:                </tspan>
+<tspan x="35" dy="17" class="ascii">               -+oooooo+:               </tspan>
+<tspan x="35" dy="17" class="ascii">             `/:-:++oooo+:              </tspan>
+<tspan x="35" dy="17" class="ascii">            `/++++/+++++++:             </tspan>
+<tspan x="35" dy="17" class="ascii">           `/++++++++++++++:            </tspan>
+<tspan x="35" dy="17" class="ascii">          `/+++ooooooooooooo/`          </tspan>
+<tspan x="35" dy="17" class="ascii">         ./ooosssso++osssssso+`         </tspan>
+<tspan x="35" dy="17" class="ascii">        .oossssso-````/ossssss+`        </tspan>
+<tspan x="35" dy="17" class="ascii">       -osssssso.      :ssssssso.       </tspan>
+<tspan x="35" dy="17" class="ascii">      :osssssss/        osssso+++.      </tspan>
+<tspan x="35" dy="17" class="ascii">     /ossssssss/        +ssssooo/-      </tspan>
+<tspan x="35" dy="17" class="ascii">   `/ossssso+/:-        -:/+osssso+-    </tspan>
+<tspan x="35" dy="17" class="ascii">  `+sso+:-`                 `.-/+oso:   </tspan>
+<tspan x="35" dy="17" class="ascii"> `++:.                           `-/+/  </tspan>
+<tspan x="35" dy="17" class="ascii"> .`                                 `/  </tspan>
+<tspan x="35" dy="17" class="ascii">                                        </tspan>
+<tspan x="35" dy="17" class="ascii">       ██████╗ ██████╗  ██████╗██╗  ██╗ </tspan>
+<tspan x="35" dy="17" class="ascii">      ██╔══██╗██╔══██╗██╔════╝██║  ██║ </tspan>
+<tspan x="35" dy="17" class="ascii">      ███████║██████╔╝██║     ███████║ </tspan>
+<tspan x="35" dy="17" class="ascii">      ██╔══██║██╔══██╗██║     ██╔══██║ </tspan>
+<tspan x="35" dy="17" class="ascii">      ██║  ██║██║  ██║╚██████╗██║  ██║ </tspan>
+<tspan x="35" dy="17" class="ascii">      ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ </tspan>
+<tspan x="35" dy="17" class="ascii">          ██╗     ██╗███╗   ██╗██╗   ██╗</tspan>
+<tspan x="35" dy="17" class="ascii">          ██║     ██║████╗  ██║██║   ██║</tspan>
+<tspan x="35" dy="17" class="ascii">          ██║     ██║██╔██╗ ██║██║   ██║</tspan>
+<tspan x="35" dy="17" class="ascii">          ██║     ██║██║╚██╗██║██║   ██║</tspan>
+<tspan x="35" dy="17" class="ascii">          ███████╗██║██║ ╚████║╚██████╔╝</tspan>
+<tspan x="35" dy="17" class="ascii">          ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ </tspan>
 </text>
 
 <!-- Right Side Terminal Content -->
 <text x="390" y="90" fill="#24292f" class="right-text">
 <tspan x="390" y="90" class="title">elyefris@omarchy </tspan><tspan class="cc">---------------------------------------------------------</tspan>
-<tspan x="390" y="120" class="cc">. </tspan><tspan class="key">OS</tspan>:<tspan class="cc"> ........................ </tspan><tspan class="value">Arch Linux (Omarchy), Android 16 (SM-A566E)</tspan>
+<tspan x="390" y="120" class="cc">. </tspan><tspan class="key">OS</tspan>:<tspan class="cc"> .............................. </tspan><tspan class="value">Arch Linux (Omarchy) · CachyOS Kernel</tspan>
 <tspan x="390" y="145" class="cc">. </tspan><tspan class="key">Uptime</tspan>:<tspan class="cc" id="age_data_dots"> .................................... </tspan><tspan class="value" id="age_data">25 years, 2 months, 30 days</tspan>
-<tspan x="390" y="170" class="cc">. </tspan><tspan class="key">Host</tspan>:<tspan class="cc"> .................................. </tspan><tspan class="value">Software Developer &amp; AR Student</tspan>
-<tspan x="390" y="195" class="cc">. </tspan><tspan class="key">Kernel</tspan>:<tspan class="cc"> .............................. </tspan><tspan class="value">Linux (BTW), Hyprland, Ghostty 👻</tspan>
-<tspan x="390" y="220" class="cc">. </tspan><tspan class="key">IDE</tspan>:<tspan class="cc"> .................................... </tspan><tspan class="value">Neovim, VSCode, Unity, Blender</tspan>
+<tspan x="390" y="170" class="cc">. </tspan><tspan class="key">Host</tspan>:<tspan class="cc"> ........................... </tspan><tspan class="value">Systems &amp; Software Engineering Student</tspan>
+<tspan x="390" y="195" class="cc">. </tspan><tspan class="key">Kernel</tspan>:<tspan class="cc"> ................... </tspan><tspan class="value">Linux-CachyOS (Zen 2 Optimized), Hyprland 🚀</tspan>
+<tspan x="390" y="220" class="cc">. </tspan><tspan class="key">IDE</tspan>:<tspan class="cc"> ...................................... </tspan><tspan class="value">Neovim, Ghostty, VSCode, Zed</tspan>
 <tspan x="390" y="240" class="cc">.</tspan>
-<tspan x="390" y="265" class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Programming</tspan>:<tspan class="cc"> ......... </tspan><tspan class="value">Python, SQL, Kotlin, JavaScript, TS, C#</tspan>
-<tspan x="390" y="290" class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Computer</tspan>:<tspan class="cc"> ............................... </tspan><tspan class="value">HTML, CSS, JSON, SQL</tspan>
+<tspan x="390" y="265" class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Programming</tspan>:<tspan class="cc"> .......... </tspan><tspan class="value">Python, QML, Bash, Kotlin, TS, C#, SQL</tspan>
+<tspan x="390" y="290" class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Computer</tspan>:<tspan class="cc"> ....................... </tspan><tspan class="value">HTML, CSS, JSON, YAML, LaTeX</tspan>
 <tspan x="390" y="315" class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Real</tspan>:<tspan class="cc"> ....................................... </tspan><tspan class="value">Spanish, English</tspan>
 <tspan x="390" y="335" class="cc">.</tspan>
-<tspan x="390" y="360" class="cc">. </tspan><tspan class="key">Hobbies</tspan>.<tspan class="key">Software</tspan>:<tspan class="cc"> ........... </tspan><tspan class="value">Linux Ricing, Studying AR (Unity, Blender)</tspan>
-<tspan x="390" y="385" class="cc">. </tspan><tspan class="key">Hobbies</tspan>.<tspan class="key">Hardware</tspan>:<tspan class="cc"> ....................... </tspan><tspan class="value">Arduino, Robotics, Electronics</tspan>
+<tspan x="390" y="360" class="cc">. </tspan><tspan class="key">Hobbies</tspan>.<tspan class="key">Software</tspan>:<tspan class="cc"> ....... </tspan><tspan class="value">Linux Ricing, Omarchy Plugins, Shell Scripting</tspan>
+<tspan x="390" y="385" class="cc">. </tspan><tspan class="key">Hobbies</tspan>.<tspan class="key">Hardware</tspan>:<tspan class="cc"> ............... </tspan><tspan class="value">Microcontrollers, Arduino, Electronics</tspan>
 <tspan x="390" y="405" class="cc">.</tspan>
 <tspan x="390" y="430" class="section">- Contact </tspan><tspan class="cc">----------------------------------------------------------------</tspan>
 <tspan x="390" y="460" class="cc">. </tspan><tspan class="key">Email</tspan>.<tspan class="key">Personal</tspan>:<tspan class="cc"> ............................... </tspan><tspan class="value">jeffcortez2305@gmail.com</tspan>
@@ -92,7 +87,7 @@ text, tspan {white-space: pre;}
 <tspan x="390" y="555" class="cc">.</tspan>
 <tspan x="390" y="580" class="stats-title">- GitHub Stats </tspan><tspan class="cc">-----------------------------------------------------------</tspan>
 <tspan x="390" y="610" class="cc">. </tspan><tspan class="key">Repos</tspan>:<tspan class="cc" id="repo_data_dots"> ............................................................... </tspan><tspan class="value" id="repo_data">9</tspan>
-<tspan x="390" y="635" class="cc">. </tspan><tspan class="key">Contributed</tspan>:<tspan class="cc" id="contrib_data_dots"> ......................................................... </tspan><tspan class="value" id="contrib_data">1</tspan>
+<tspan x="390" y="635" class="cc">. </tspan><tspan class="key">Contributed</tspan>:<tspan class="cc" id="contrib_data_dots"> ......................................................... </tspan><tspan class="value" id="contrib_data">2</tspan>
 <tspan x="390" y="660" class="cc">. </tspan><tspan class="key">Stars</tspan>:<tspan class="cc" id="star_data_dots"> ............................................................... </tspan><tspan class="value" id="star_data">3</tspan>
 <tspan x="390" y="685" class="cc">. </tspan><tspan class="key">Commits</tspan>:<tspan class="cc" id="commit_data_dots"> ........................................................... </tspan><tspan class="value" id="commit_data">236</tspan>
 <tspan x="390" y="710" class="cc">. </tspan><tspan class="key">Followers</tspan>:<tspan class="cc" id="follower_data_dots"> ........................................................... </tspan><tspan class="value" id="follower_data">2</tspan>
