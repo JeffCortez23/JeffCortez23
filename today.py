@@ -133,7 +133,7 @@ def generate_right_side(uptime, stats, is_dark=True):
     # Contact Info
     rows.append(make_tspan_row(460, "Email.Personal", "jeffcortez2305@gmail.com"))
     rows.append(make_tspan_row(485, "LinkedIn", "Jeff Cortez"))
-    rows.append(make_tspan_row(510, "Discord", "elyefris"))
+    rows.append(make_tspan_row(510, "Discord", "jeffcortez2305"))
     rows.append(make_tspan_row(535, "ORCID", "0009-0003-3692-7916"))
     
     # Spacer

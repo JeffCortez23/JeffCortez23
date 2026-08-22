@@ -1,8 +1,8 @@
 <div align="center">
   <a href="https://github.com/JeffCortez23/JeffCortez23">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/JeffCortez23/JeffCortez23/main/dark_mode.svg?v=20260822_arch">
-      <img alt="ElYefris GitHub Profile README" src="https://raw.githubusercontent.com/JeffCortez23/JeffCortez23/main/light_mode.svg?v=20260822_arch">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/JeffCortez23/JeffCortez23/main/dark_mode.svg?v=20260822_connect">
+      <img alt="ElYefris GitHub Profile README" src="https://raw.githubusercontent.com/JeffCortez23/JeffCortez23/main/light_mode.svg?v=20260822_connect">
     </picture>
   </a>
 </div>
@@ -89,6 +89,26 @@
     <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C#"/>
     <img src="https://img.shields.io/badge/Ghostty-FF5F56?style=for-the-badge&logo=ghost&logoColor=white" alt="Ghostty"/>
     <img src="https://img.shields.io/badge/Neovim-57A143?style=for-the-badge&logo=neovim&logoColor=white" alt="Neovim"/>
+  </p>
+</div>
+
+<br>
+
+<div align="center">
+  <h2>📫 Connect & Collaborate</h2>
+  <p align="center">
+    <a href="https://www.linkedin.com/in/jeff-cortez-6b4407338/" target="_blank">
+      <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+    </a>
+    <a href="mailto:jeffcortez2305@gmail.com">
+      <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/>
+    </a>
+    <a href="https://discordapp.com/users/jeffcortez2305" target="_blank">
+      <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"/>
+    </a>
+    <a href="https://orcid.org/0009-0003-3692-7916" target="_blank">
+      <img src="https://img.shields.io/badge/ORCID-A6CE39?style=for-the-badge&logo=orcid&logoColor=white" alt="ORCID"/>
+    </a>
   </p>
 </div>
 
