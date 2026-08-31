@@ -33,7 +33,7 @@
         <h3 align="center">📽️ <a href="https://github.com/JeffCortez23/omarchy-projector-cast">Projector & Cast</a></h3>
         <p align="center">
           <a href="https://omarchyplugins.com/plugin.html?id=io.github.jeffcortez23.omarchy-projector-cast"><img src="https://img.shields.io/badge/Omarchy%20Store-Verified-22c55e?style=flat-square&logo=linux" alt="Marketplace Verified"></a>
-          <a href="https://github.com/JeffCortez23/omarchy-projector-cast"><img src="https://img.shields.io/badge/Version-1.0.0-38bdf8?style=flat-square" alt="Version"></a>
+          <a href="https://github.com/JeffCortez23/omarchy-projector-cast"><img src="https://img.shields.io/badge/Version-1.0.1-38bdf8?style=flat-square" alt="Version"></a>
         </p>
         <p align="center">
           1-click <b>Miracast screen mirroring</b> for projectors & Smart TVs with categorized aspect-ratio presets (16:10 Epson, 16:9, 3:2, Ultrawide), HiDPI auto-scaling, custom resolution input, and 8 languages.
