@@ -151,8 +151,8 @@ def generate_right_side(uptime, stats, is_dark=True):
     
     return f'<!-- Right Side Terminal Content -->\n<text x="390" y="90" fill="{fill_color}" class="right-text">\n' + "\n".join(rows) + "\n</text>"
 
-# Crisp, iconic high-resolution Arch Linux ASCII Art (36 lines, vertically centered)
-ARCH_ASCII_LINES = [
+# Crisp, iconic high-resolution Arch Linux ASCII Art (vertically centered with exact grid coordinates)
+ARCH_LOGO_LINES = [
     "                   -`                   ",
     "                  .o+`                  ",
     "                 `ooo/                  ",
@@ -172,25 +172,42 @@ ARCH_ASCII_LINES = [
     "  `+sso+:-`                 `.-/+oso:   ",
     " `++:.                           `-/+/  ",
     " .`                                 `/  ",
-    "                                        ",
-    "       ██████╗ ██████╗  ██████╗██╗  ██╗ ",
-    "      ██╔══██╗██╔══██╗██╔════╝██║  ██║ ",
-    "      ███████║██████╔╝██║     ███████║ ",
-    "      ██╔══██║██╔══██╗██║     ██╔══██║ ",
-    "      ██║  ██║██║  ██║╚██████╗██║  ██║ ",
-    "      ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ ",
-    "          ██╗     ██╗███╗   ██╗██╗   ██╗",
-    "          ██║     ██║████╗  ██║██║   ██║",
-    "          ██║     ██║██╔██╗ ██║██║   ██║",
-    "          ██║     ██║██║╚██╗██║██║   ██║",
-    "          ███████╗██║██║ ╚████║╚██████╔╝",
-    "          ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ "
 ]
 
+ARCH_BANNER_LINES = [
+    "     █████╗ ██████╗  ██████╗██╗  ██╗    ",
+    "    ██╔══██╗██╔══██╗██╔════╝██║  ██║    ",
+    "    ███████║██████╔╝██║     ███████║    ",
+    "    ██╔══██║██╔══██╗██║     ██╔══██║    ",
+    "    ██║  ██║██║  ██║╚██████╗██║  ██║    ",
+    "    ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝    ",
+]
+
+LINUX_BANNER_LINES = [
+    " ██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗ ",
+    " ██║     ██║████╗  ██║██║   ██║╚██╗██╔╝ ",
+    " ██║     ██║██╔██╗ ██║██║   ██║ ╚███╔╝  ",
+    " ██║     ██║██║╚██╗██║██║   ██║ ██╔██╗  ",
+    " ███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗ ",
+    " ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝ ",
+]
+
+def make_grid_tspan(line, start_x, cell_w, y_attr, cls):
+    xs = " ".join(f"{start_x + i * cell_w:.2f}".rstrip("0").rstrip(".") for i, ch in enumerate(line) if ch != " ")
+    chars = "".join(ch for ch in line if ch != " ")
+    return f'<tspan x="{xs}" {y_attr} class="{cls}">{chars}</tspan>'
+
 def generate_ascii_block():
-    spans = [f'<tspan x="35" y="105" class="ascii">{ARCH_ASCII_LINES[0]}</tspan>']
-    for line in ARCH_ASCII_LINES[1:]:
-        spans.append(f'<tspan x="35" dy="17" class="ascii">{line}</tspan>')
+    spans = []
+    for i, line in enumerate(ARCH_LOGO_LINES):
+        y_attr = 'y="118"' if i == 0 else 'dy="18"'
+        spans.append(make_grid_tspan(line, 34.1, 8.2, y_attr, "ascii-logo"))
+    for i, line in enumerate(ARCH_BANNER_LINES):
+        y_attr = 'dy="40"' if i == 0 else 'dy="13.8"'
+        spans.append(make_grid_tspan(line, 42.88, 7.75, y_attr, "ascii-banner"))
+    for i, line in enumerate(LINUX_BANNER_LINES):
+        y_attr = 'dy="28"' if i == 0 else 'dy="13.8"'
+        spans.append(make_grid_tspan(line, 42.88, 7.75, y_attr, "ascii-banner"))
     return "\n".join(spans)
 
 def create_base_svg(is_dark=True):
@@ -225,7 +242,9 @@ def create_base_svg(is_dark=True):
 .key {{fill: {key_color}; font-weight: bold;}}
 .value {{fill: {val_color};}}
 .cc {{fill: {cc_color};}}
-.ascii {{fill: url(#asciiGrad); font-weight: bold; font-size: 11.5px; font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;}}
+.ascii {{fill: url(#asciiGrad); font-family: 'JetBrainsMono Nerd Font', 'JetBrains Mono', 'Fira Code', 'Adwaita Mono', 'Noto Sans Mono', 'Liberation Mono', 'Consolas', monospace;}}
+.ascii-logo {{font-weight: bold; font-size: 13.5px;}}
+.ascii-banner {{font-weight: normal; font-size: 13px;}}
 .title {{fill: {title_color}; font-weight: bold;}}
 .section {{fill: {section_color}; font-weight: bold;}}
 .stats-title {{fill: {stats_color}; font-weight: bold;}}
@@ -270,14 +289,14 @@ if __name__ == '__main__':
             r = requests.get(f'https://api.github.com/users/{USER_NAME}')
             u = r.json()
             stats = {
-                'repos': u.get('public_repos', 10),
-                'stars': 3,
-                'commits': 236,
+                'repos': max(u.get('public_repos', 13), 13),
+                'stars': 8,
+                'commits': 324,
                 'followers': u.get('followers', 2),
                 'contribs': 2
             }
         except:
-            stats = {'repos': 10, 'stars': 3, 'commits': 236, 'followers': 2, 'contribs': 2}
+            stats = {'repos': 13, 'stars': 8, 'commits': 324, 'followers': 2, 'contribs': 2}
             
     print(f"Stats: {stats}")
     update_svg('dark_mode.svg', stats)
